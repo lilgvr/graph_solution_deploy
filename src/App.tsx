@@ -51,7 +51,9 @@ const App = () => {
             value={elementsCount}
             sx={{ marginTop: '30px' }}
             onChange={(e) => {
-              const value = e.target.value ? Math.max(1, +e.target.value) : 1
+              const value = e.target.value
+                ? Math.min(Math.max(1, +e.target.value), 10)
+                : 1
               setElementsCount(value)
 
               if (value) {
